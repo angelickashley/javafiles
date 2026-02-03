@@ -8,7 +8,8 @@ class jlab51
 // Error:	 
 // Why:	
 
-public static void main(String[] args) {
+class Jlab51 {
+     public static void main(String[] args) {
          String sentence;
          int space;
          String currentWord;
@@ -23,31 +24,31 @@ public static void main(String[] args) {
              space = sentence.indexOf(' ');
              isValidWord = true;
              charIndex = 0;
-             // Extract current word correctly
-             if (space != -1) {
-                 // Skip leading empty strings from consecutive spaces
-                 if (space == 0) {
-                     sentence = sentence.substring(1);
-                     continue; // Move to next iteration to recheck space
-                 }
-                 currentWord = sentence.substring(0, space);
-                 sentence = sentence.substring(space + 1);
+             // Handle consecutive spaces without continue
+             if (space == 0) {
+                 sentence = sentence.substring(1);
              } else {
-                 currentWord = sentence;
-                 sentence = "";
-             }
-             // Check all characters without break
-             while (charIndex < currentWord.length() && isValidWord) {
-                 character = currentWord.charAt(charIndex);
-                 if (!((character >= 'A' && character <= 'Z') || (character >= 'a' && character <= 'z'))) {
-                     isValidWord = false;
+                 // Extract current word correctly
+                 if (space != -1) {
+                     currentWord = sentence.substring(0, space);
+                     sentence = sentence.substring(space + 1);
+                 } else {
+                     currentWord = sentence;
+                     sentence = "";
                  }
-                 charIndex++;
-             }
-             // Count and print valid words
-             if (isValidWord && currentWord.length() > 0) {
-                 count++;
-                 System.out.println(currentWord + " is a word");
+                 // Check all characters without break
+                 while (charIndex < currentWord.length() && isValidWord) {
+                     character = currentWord.charAt(charIndex);
+                     if (!((character >= 'A' && character <= 'Z') || (character >= 'a' && character <= 'z'))) {
+                         isValidWord = false;
+                     }
+                     charIndex++;
+                 }
+                 // Count and print valid words
+                 if (isValidWord && currentWord.length() > 0) {
+                     count++;
+                     System.out.println(currentWord + " is a word");
+                 }
              }
          }
          System.out.println("The amount of valid words are: " + count);
