@@ -13,17 +13,19 @@ class jlab52
         		String sentence;
         		String currentWord;
         		char character;
-        		boolean isValidWord;
+        		boolean validWord;
         		int charIndex;
         		int space;
-        		String reversedResult = ""; // Stores final reversed valid words
+        		String reversedResult;
+          
+          reversedResult = ""; // Stores final reversed valid words
         		
         		System.out.print("Enter a string of words: ");
         		sentence = EasyIn.getString();
         		while (sentence.length() > 0)
         			{
         				space = sentence.indexOf(' ');
-        				isValidWord = true;  // Handle word extraction (with consecutive space check)
+        				validWord = true;  // Handle word extraction (with consecutive space check)
         				if (space != -1)
         					{  // Skip empty "words" from consecutive spaces
         						if (space == 0)
