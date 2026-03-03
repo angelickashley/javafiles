@@ -13,27 +13,27 @@ the values of either “Distinction”, “Merit1”, “Merit2”, “Pass” o
   {
     if (mark>=70 && mark<=100)
       {
-        System.out.println("Distinction");
+        return("Distinction");
       }
     else if(mark>=63 && mark<=69)
       {
-        System.out.println("Merit1");
+        return("Merit1");
       }
     else if(mark>=55 && mark<=62)
       {
-        System.out.println("Merit2");
+        return("Merit2");
       }
     else if(mark>=40 && mark<=54)
       {
-        System.out.println("Pass");
+        return("Pass");
       }
     else if(mark>=40 && mark<=0);
       {
-        System.out.println("Fail");
+        return("Fail");
       }
     else
       {
-        System.out.println("Please enter a valid input");
+        return("Please enter a valid input");
       }
   }
 }
